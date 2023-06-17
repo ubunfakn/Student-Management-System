@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org"
+    th:replace="navigation :: Layout(~{::section})">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+        <title>Student Management System</title>
+    </head>
+    <body>
+        <section>
+            <div class="container mt-5">
+                <div class="row">
+                    <h1 class="text-center">Students List</h1>
+                </div>
+                <div class="row">
+                </div>
+                <div class="row mt-4">
+                    <table class="table table-dark table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Roll No.</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Father's Name</th>
+                                <th scope="col">Mother's Name</th>
+                                <th scope="col">E-Mail</th>
+                                <th scope="col">Phone Number</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="student : ${students}">
+                                <th scope="col" th:text="${student.id}"></th>
+                                <td th:text="${student.name}"></td>
+                                <td th:text="${student.fatherName}"></td>
+                                <td th:text="${student.motherName}"></td>
+                                <td th:text="${student.email}"></td>
+                                <td th:text="${student.phone}"></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                        th:href="@{/update/{id}(id=${student.id})}"><i class="fa-solid fa-pen-nib"></i></a>
+                                    <a class="btn btn-danger btn-sm"
+                                        th:href="@{/delete/{id}(id=${student.id})}"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
