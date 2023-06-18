@@ -1,4 +1,4 @@
-package com.ubunfakn.student_management_system.services;
+package com.ubunfakn.student_management_system.services.provider;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ubunfakn.student_management_system.entity.Student;
 import com.ubunfakn.student_management_system.repository.StudentRepository;
+import com.ubunfakn.student_management_system.services.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
