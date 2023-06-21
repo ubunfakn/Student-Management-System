@@ -1,4 +1,4 @@
-package com.ubunfakn.student_management_system.conctroller;
+package com.ubunfakn.student_management_system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

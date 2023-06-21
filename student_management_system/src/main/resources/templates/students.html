@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
-<html 
-    lang="en" 
+<html
+    lang="en"
     xmlns="https://www.thymeleaf.org"
     th:replace="navigation :: Layout(~{::section})">
 
     <head>
 
         <meta charset="UTF-8">
-        <meta 
-            name="viewport" 
+        <meta
+            name="viewport"
             content="width=device-width, initial-scale=1.0">
 
         <title>
@@ -19,20 +19,23 @@
     </head>
 
     <body>
-        <section>
+        <section
+            style="min-height: 100vh; display: flex;flex-direction: column;">
 
-            <div class="container mt-5">
+            <div class="col-md-10 offset-md-1 mt-5">
 
                 <div class="row">
-                    <h1 
-                        class="text-center text-dark font-weight-bold font-italic">
-                        Students List
-                    </h1>
+                    <div class="container">
+                        <h1
+                            class="text-center text-dark font-weight-bold font-italic">
+                            Students List
+                        </h1>
+                    </div>
                 </div>
 
-                <div class="row mt-4">
-                    <table 
-                        class="table table-dark table-bordered table-responsive">
+                <div class="table-responsive row mt-4">
+                    <table
+                        class="table table-dark table-bordered">
 
                         <thead>
                             <tr>
@@ -48,19 +51,19 @@
 
                         <tbody>
                             <tr th:each="student : ${students}">
-                                <th scope="col" th:text="${student.id}"></th>
+                                <th scope="col" th:text="SMSYS+${student.id}"></th>
                                 <td th:text="${student.name}"></td>
                                 <td th:text="${student.fatherName}"></td>
                                 <td th:text="${student.motherName}"></td>
                                 <td th:text="${student.email}"></td>
                                 <td th:text="${student.phone}"></td>
                                 <td>
-                                    <a 
+                                    <a
                                         class="btn btn-primary btn-sm"
                                         th:href="@{/update/{id}(id=${student.id})}">
                                         <i class="fa-solid fa-pen-nib"></i>
                                     </a>
-                                    <a 
+                                    <a
                                         class="btn btn-danger btn-sm"
                                         th:href="@{/delete/{id}(id=${student.id})}">
                                         <i class="fa-sharp fa-solid fa-trash"></i>
@@ -71,6 +74,10 @@
 
                     </table>
                 </div>
+            </div>
+            <div class="footer bg-dark text-white p-3 text-center"
+                style="margin-top: auto;bottom: 0;">
+                Copyright &copy; 2023 - <a class="text-white" th:href="@{url}">UBUNFAKN</a>
             </div>
         </section>
     </body>
